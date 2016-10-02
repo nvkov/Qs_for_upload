@@ -43,7 +43,7 @@ set.seed(22)
 train<- dat[,i:=.I,][sample(i, 19000)]
 setkey(dat, "i")
 
-valid<- dat[!train,]
+valid<- dat[!dat$i %in% train$i,]
 
 # Select covariates -------------------------------------------------------
 
